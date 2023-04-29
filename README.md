@@ -17,6 +17,11 @@ https://user-images.githubusercontent.com/73371496/235305831-8f18bf8a-6bb5-452b-
 https://gungeespla.github.io/mk8dx_sokuji/
 
 ## Setup
+#### Tesseractのインストール
+下記などを参考<br>
+Mac：https://www.teamxeppet.com/tesseract-intro/ <br>
+Windows：https://rightcode.co.jp/blog/information-technology/python-tesseract-image-processing-ocr
+
 #### ライブラリの構築
 requirements.txtにて構築
 ```
