@@ -1,5 +1,6 @@
 # MK8D_auto_totalling
-【マリオカート8DX】合計得点を自動で集計する
+【マリオカート8DX】合計得点を自動で集計する<br>
+#MK8D #OCR #文字認識 #Tesseract #Python
 
 ## Demo
 https://user-images.githubusercontent.com/73371496/235305831-8f18bf8a-6bb5-452b-ae1b-da8f686f2c20.mp4
