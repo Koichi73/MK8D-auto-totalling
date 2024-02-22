@@ -13,7 +13,7 @@ def index():
         team_tag = request.form['team_tag']
         enemy_tag = request.form['enemy_tag']
         texts = ocr(img)
-        calc_result, team_score, enemy_score = ocr_calculator.calculate_score(texts)
+        calc_result, team_score, enemy_score = calculate_score(texts, team_tag, enemy_tag)
         print(texts)
 
         return render_template("index.html", texts=texts, calc_result=calc_result, team_score=team_score, enemy_score=enemy_score)
