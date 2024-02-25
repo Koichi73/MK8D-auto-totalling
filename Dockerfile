@@ -1,24 +1,25 @@
-FROM python:3.11-slim
+# ビルドステージ
+FROM python:3.11-buster AS builder
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --user -r requirements.txt
+
+# 実行ステージ
+FROM python:3.11-slim-buster
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
-
-WORKDIR /app
 
 RUN \
     #
     # apt-get
     apt-get update && apt-get install -y \
     tesseract-ocr \
-    curl \
-    git \
+    libgl1-mesa-dev \
     sudo \
-    # for opencv
-    libgl1-mesa-dev \ 
-    # for jupyter
-    gcc \
-    python3-dev \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     #
@@ -28,7 +29,6 @@ RUN \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-USER vscode
+COPY --from=builder /root/.local /home/$USERNAME/.local
 
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+USER vscode

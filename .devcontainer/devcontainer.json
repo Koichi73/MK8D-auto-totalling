@@ -1,5 +1,5 @@
 {
-	"name": "MK8D_Dev",
+	"name": "MK8D_dev",
 	"build": {
 		"dockerfile": "../Dockerfile"
 	},
